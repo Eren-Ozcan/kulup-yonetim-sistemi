@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <!-- Stil dosyasına bağlantı -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- Kullanıcı oturum açtıysa, navigasyon barını göster -->
+{% if session.get('username') %}
+<div class="navbar">
+    <a href="{{ url_for('profile') }}">Profile</a>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+{% endif %}
+
+<div class="container">
+    <!-- Kullanıcının karşılama mesajı -->
+    <h1>Welcome, {{ username }}!</h1>
+    <h2>Your Details</h2>
+
+    <!-- Kullanıcı bilgilerini göstermek için tablo -->
+    <table>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+      <tr>
+        <td>{{ username }}</td>
+        <td>{{ email }}</td>
+        <td>{{ password }}</td>
+      </tr>
+    </table>
+
+    <!-- Kullanıcı için şifre güncelleme ve panele gitme butonları -->
+    <div style="margin-top: 1rem;">
+      <a href="{{ url_for('update_password') }}" class="logout-btn">Update Password</a>
+      <a href="{{ url_for('dashboard') }}" class="logout-btn">Go to Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>

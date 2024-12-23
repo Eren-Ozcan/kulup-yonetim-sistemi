@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <!-- Stil dosyasına bağlantı -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- Kullanıcı oturum açtıysa, navigasyon barını göster -->
+{% if session.get('username') %}
+<div class="navbar">
+    <a href="{{ url_for('profile') }}">Profile</a>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+{% endif %}
+
+<div class="container">
+    <!-- Etkinlik başlık kısmı -->
+    <h1>Events</h1>
+
+    <!-- Eğer kullanıcı admin ise yeni etkinlik ekleme butonu -->
+    {% if role == 'admin' %}
+    <a href="{{ url_for('add_event') }}" class="btn-add-event">Add New Event</a>
+    {% endif %}
+
+    <!-- Etkinliklerin listelendiği kısım -->
+    <ul class="event-list">
+        {% for event in events %}
+        <li>
+            <!-- Admin ise etkinliği silme butonunu göster -->
+            {% if role == 'admin' %}
+            <a href="{{ url_for('delete_event', event_id=event.id) }}" class="delete-btn">Delete</a>
+            {% endif %}
+            <strong>{{ event.title }}</strong>: {{ event.description }} ({{ event.event_date }})
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Pano sayfasına geri dönme bağlantısı -->
+    <a href="{{ url_for('dashboard') }}" class="logout-btn">Back to Dashboard</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <!-- Stil dosyasına bağlantı -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- Kullanıcı oturum açtıysa, navigasyon barını göster -->
+{% if session.get('username') %}
+<div class="navbar">
+    <a href="{{ url_for('profile') }}">Profile</a>
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+{% endif %}
+
+<div class="container">
+    <!-- Ana başlık -->
+    <h1>Dashboard</h1>
+    <!-- Kullanıcıya hoş geldin mesajı -->
+    <p class="welcome-text">
+        Welcome, <strong>{{ username }}</strong>!  
+        Your role: <strong>{{ role }}</strong>
+    </p>
+
+    <!-- Eğer kullanıcı admin ise üye listesini göster -->
+    {% if role == 'admin' %}
+    <div class="members-section">
+        <h2>Member List</h2>
+        <ul class="member-list">
+            {% for member in members %}
+            <li>{{ member[0] }} - {{ member[1] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    <!-- Kullanıcı için eylem butonları -->
+    <div class="dashboard-actions">
+        <a href="{{ url_for('events') }}" class="logout-btn">View Events</a>
+    </div>
+</div>
+
+</body>
+</html>

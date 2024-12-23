@@ -1,0 +1,179 @@
+/* =========================
+   GENEL SIFIRLAMA & BODY
+   ========================= */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* =========================
+   NAVBAR (ÜST MENÜ)
+   ========================= */
+.navbar {
+    background-color: #008CBA;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   ANA KAPSAYICI (HER SAYFA)
+   =========================
+   Daha ferah görünüm için 
+   width:700px, margin & padding fazla
+*/
+.container {
+    background-color: #ffffff;
+    width: 700px;
+    margin: 3rem auto;     /* Ortalamak için left-right: auto */
+    padding: 3rem;         /* İç boşluk fazla */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Tablet/telefon uyumu */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 2rem auto;
+        padding: 1.5rem;
+    }
+}
+
+/* =========================
+   BUTON STİLLERİ
+   ========================= */
+.logout-btn,
+.nav-btn {
+    background-color: #555;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.logout-btn:hover,
+.nav-btn:hover {
+    background-color: #333;
+}
+
+/* Etkinlik ekleme vb. buton */
+.btn-add-event {
+    background-color: #008CBA;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    border-radius: 3px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 1rem;  
+    margin-right: 0.5rem;
+}
+
+.btn-add-event:hover {
+    background-color: #005f6b;
+}
+
+/* Silme (Delete) butonu */
+.delete-btn {
+    background-color: #FF5C5C;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 10px; /* Yazıyla arasında boşluk */
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* =========================
+   FORM STİLLERİ
+   ========================= */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+textarea {
+    display: block;
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* =========================
+   TABLO GENEL STİLİ
+   ========================= */
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 1.5rem; 
+}
+
+th, td {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* =========================
+   EVENTS LİST
+   ========================= */
+ul.event-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+}
+
+ul.event-list li {
+    margin-bottom: 8px;
+}
+
+/* =========================
+   DASHBOARD / ÜYE LİSTESİ
+   ========================= */
+.welcome-text {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.members-section {
+    margin-bottom: 2rem;
+}
+
+.member-list {
+    list-style-type: square;
+    margin-left: 1.5rem; 
+    margin-top: 1rem;
+}
+
+.member-list li {
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-actions {
+    margin-top: 1rem;
+}
